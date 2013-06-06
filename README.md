@@ -1,7 +1,5 @@
 #jquery.modalizer
 
-## RDD (README.md Driven Development)
-
 Given some html
 ``` html
 <div class="non-modal-page">
@@ -37,4 +35,7 @@ Then I get
 </form>
 ```
 
-# MAKE IT HAPPEN INTERNET!
+Until I get a command line test runner run `python -m SimpleHTTPServer` from
+the root directory and `open http://localhost:8000/SpecRunner.html` to run the
+specs.
+
