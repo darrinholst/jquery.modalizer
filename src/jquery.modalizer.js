@@ -6,9 +6,11 @@ $.fn.modalize = function() {
   $body = $("<div>").addClass("modal-body").appendTo($temp);
   $footer = $("<div>").addClass("modal-footer").appendTo($temp);
 
+  $form = $donor.find("form")
+
   $donor.find("h2:first").appendTo($header);
   $donor.find(".actions:first").appendTo($footer);
   $body.append($donor.html());
 
-  return $temp.html();
+  return $form.length ? $form.html($temp.html()) : $temp.html()
 }
