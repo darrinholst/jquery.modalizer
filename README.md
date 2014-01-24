@@ -35,7 +35,9 @@ Then I get
 </form>
 ```
 
-Until I get a command line test runner run `python -m SimpleHTTPServer` from
-the root directory and `open http://localhost:8000/SpecRunner.html` to run the
-specs.
+### Run the specs
+```
+bundle install
+rake jasmine:ci
+```
 
