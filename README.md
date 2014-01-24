@@ -1,6 +1,6 @@
 #jquery.modalizer
 
-Given some html
+__Given__ some html
 ``` html
 <div class="non-modal-page">
   <h2>Some Title</h2>
@@ -13,12 +13,12 @@ Given some html
 </div>
 ```
 
-When I
+__When__ I
 ``` js
 $(".non-modal-page").modalize();
 ```
 
-Then I get
+__Then__ I get
 ``` html
 <form>
   <div class="modal-header">
@@ -35,7 +35,25 @@ Then I get
 </form>
 ```
 
-### Run the specs
+### Huh? Why?
+
+Because generally it's a good idea to make your modal interactions work outside of a modal dialog for stuff like testing or mobile views and you probably don't want to write 2 sets of markup depending on what context your content is displayed in. So this will take your normal markup and rearrange it into what ~~your modal library~~ bootstrap wants it in. 
+
+### Usage
+``` javascript
+$.ajax(url,
+  dataType: "html"
+
+  success: (response) -> (
+    modal.html($(response).modalize())
+  )
+)
+```
+
+### Options
+TODO
+
+### Development
 ```
 bundle install
 rake jasmine:ci
