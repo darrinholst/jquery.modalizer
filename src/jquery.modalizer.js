@@ -1,14 +1,19 @@
 $.fn.modalize = function() {
-  $donor = $('<div>').html(this.html());
+  var source = $('<div>').html(this.html()),
+      form = source.find('form'),
+      modalTemp = $('<div>'),
+      modalHeader = $('<div>').addClass('modal-header').appendTo(modalTemp),
+      modalBody = $('<div>').addClass('modal-body').appendTo(modalTemp),
+      modalFooter = $('<div>').addClass('modal-footer').appendTo(modalTemp);
 
-  $temp = $('<div>');
-  $header = $('<div>').addClass('modal-header').appendTo($temp);
-  $body = $('<div>').addClass('modal-body').appendTo($temp);
-  $footer = $('<div>').addClass('modal-footer').appendTo($temp);
+  source.find('form > *').unwrap();
+  source.find('h2:first').appendTo(modalHeader);
+  source.find('.actions:first').appendTo(modalFooter);
+  modalBody.append(source.html());
 
-  $donor.find('h2:first').appendTo($header);
-  $donor.find('.actions:first').appendTo($footer);
-  $body.append($donor.html());
-
-  return $temp.html();
+  if(form.length) {
+    return form.html(modalTemp.html());
+  } else {
+    return modalTemp.html();
+  }
 }
